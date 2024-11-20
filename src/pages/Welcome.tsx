@@ -11,7 +11,7 @@ import React from 'react';
 const InfoCard: React.FC<{
   title: string;
   index: number;
-  desc: string;
+  desc: React.ReactNode;
   href: string;
 }> = ({ title, href, index, desc }) => {
   const { useToken } = theme;
@@ -92,11 +92,13 @@ const Welcome: React.FC = () => {
         style={{
           borderRadius: 8,
         }}
-        bodyStyle={{
-          backgroundImage:
-            initialState?.settings?.navTheme === 'realDark'
-              ? 'background-image: linear-gradient(75deg, #1A1B1F 0%, #191C1F 100%)'
-              : 'background-image: linear-gradient(75deg, #FBFDFF 0%, #F5F7FF 100%)',
+        styles={{
+          body: {
+            backgroundImage:
+              initialState?.settings?.navTheme === 'realDark'
+                ? 'linear-gradient(75deg, #1A1B1F 0%, #191C1F 100%)'
+                : 'linear-gradient(75deg, #FBFDFF 0%, #F5F7FF 100%)',
+          },
         }}
       >
         <div
@@ -114,7 +116,7 @@ const Welcome: React.FC = () => {
               color: token.colorTextHeading,
             }}
           >
-            欢迎使用 Ant Design Pro
+            用户中心-项目规划
           </div>
           <p
             style={{
@@ -126,8 +128,8 @@ const Welcome: React.FC = () => {
               width: '65%',
             }}
           >
-            Ant Design Pro 是一个整合了 umi，Ant Design 和 ProComponents
-            的脚手架方案。致力于在设计规范和基础组件的基础上，继续向上构建，提炼出典型模板/业务组件/配套设计资源，进一步提升企业级中后台产品设计研发过程中的『用户』和『设计者』的体验。
+            任务规划：带领大家完成以下前端（react）+后端（springboot）的开发，能够拥有一个简单的后台管理系统框架，并且能够实现用户注册、登录、注销、用户管理、条件查询等功能<br /><br />
+            拓展任务：自己完善用户个人信息的修改、修改密码、忘记密码等功能
           </p>
           <div
             style={{
@@ -139,21 +141,36 @@ const Welcome: React.FC = () => {
             <InfoCard
               index={1}
               href="https://umijs.org/docs/introduce/introduce"
-              title="了解 umi"
-              desc="umi 是一个可扩展的企业级前端应用框架,umi 以路由为基础的，同时支持配置式路由和约定式路由，保证路由的功能完备，并以此进行功能扩展。"
+              title="前端"
+              desc={
+                <>
+                  react + ant design pro<br /><br />
+                  登录界面<br />
+                  注册界面<br />
+                  主体界面<br />
+                  用户管理界面<br />
+                </>
+              }
             />
             <InfoCard
               index={2}
-              title="了解 ant design"
+              title="后端"
               href="https://ant.design"
-              desc="antd 是基于 Ant Design 设计体系的 React UI 组件库，主要用于研发企业级中后台产品。"
+              desc={
+                <>
+                  springboot + mybatis-plus + mysql<br /><br />
+                  用户注册：/user/register<br />
+                  用户登录：/user/login<br />
+                  用户注销：/user/logout<br />
+                  获取当前登录用户信息：/user/current<br />
+                  条件查询所有用户：/user/list<br />
+                  添加用户：/user/add<br />
+                  修改用户：/user/update<br />
+                  删除用户：/user/delete<br />
+                </>
+              }
             />
-            <InfoCard
-              index={3}
-              title="了解 Pro Components"
-              href="https://procomponents.ant.design"
-              desc="ProComponents 是一个基于 Ant Design 做了更高抽象的模板组件，以 一个组件就是一个页面为开发理念，为中后台开发带来更好的体验。"
-            />
+            
           </div>
         </div>
       </Card>

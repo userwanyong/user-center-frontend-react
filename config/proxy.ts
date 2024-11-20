@@ -10,7 +10,7 @@
  * @doc https://umijs.org/docs/guides/proxy
  */
 export default {
-  // 如果需要自定义本地开发服务器  请取消注释按需调整
+  // 如果需要自定义本地开发服务器  请取消注释按需调整  解决跨域问题
   dev: {
     // localhost:8000/api/** -> http://localhost:8080/api/**
     '/api/': {

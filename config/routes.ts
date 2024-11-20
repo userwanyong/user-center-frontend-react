@@ -13,14 +13,12 @@ export default [
     name: '管理页',
     icon: 'crown',
     access: 'canAdmin', //权限判断
-    // component: './Admin',
     routes: [
       { path: '/admin', redirect: '/admin/user-manger' }, //进入这个下拉菜单默认指向该菜单栏下的哪一项
       { path: '/admin/user-manger', name: '用户管理', component: './Admin/UserManger'},
     ],
   },
 
-  // { name: '查询表格', icon: 'table', path: '/list', component: './TableList' },
   { path: '/', redirect: '/welcome' },
   { path: '*', layout: false, component: './404' },
 ];

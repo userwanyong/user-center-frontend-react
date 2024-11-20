@@ -44,20 +44,7 @@ const useStyles = createStyles(({ token }) => {
     },
   };
 });
-const LoginMessage: React.FC<{
-  content: string;
-}> = ({ content }) => {
-  return (
-    <Alert
-      style={{
-        marginBottom: 24,
-      }}
-      message={content}
-      type="error"
-      showIcon
-    />
-  );
-};
+
 const Login: React.FC = () => {
   const [userLoginState, setUserLoginState] = useState<API.UserLoginDTO>({});
   const [type, setType] = useState<string>('account');
@@ -141,9 +128,6 @@ const Login: React.FC = () => {
             ]}
           />
 
-          {/* {status !== 200 && loginType === 'account' && (
-            <LoginMessage content={'错误的用户名和密码(admin/ant.design)'} />
-          )} */}
           {type === 'account' && (
             <>
               <ProFormText
